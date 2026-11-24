@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para el mejor papá del mundo ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f1c2e, #1f3a5f, #0d1624);
+  font-family: Georgia, serif;
+  color: #f4f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 15px;
+  overflow-x: hidden;
+}
+
+.floating {
+  position: fixed;
+  color: #f2c97d;
+  opacity: 0.35;
+  animation: floatUp 8s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(110vh) rotate(0deg); }
+  100% { transform: translateY(-15vh) rotate(360deg); }
+}
+
+.container {
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.envelope {
+  background: linear-gradient(145deg, #f8f5ef, #ebe3d5);
+  color: #1c314e;
+  padding: 55px 25px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 2px solid #d4b886;
+}
+
+.envelope:hover {
+  transform: scale(1.03);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+}
+
+.seal {
+  font-size: 62px;
+  margin-bottom: 10px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.envelope h1 {
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.envelope p {
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.letter {
+  display: none;
+  background: #fcfaf6;
+  color: #1e2d40;
+  padding: 36px 26px;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: appear 0.9s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.letter h2 {
+  font-size: 28px;
+  color: #1f426e;
+  margin-top: 0;
+}
+
+.intro {
+  line-height: 1.85;
+  font-size: 16.5px;
+  text-align: left;
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c7b28a, transparent);
+  margin: 28px 0;
+}
+
+.cards-title {
+  color: #1f426e;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.card-box {
+  background: #f1f4f9;
+  border-left: 4px solid #b88b3e;
+  border-radius: 10px;
+  padding: 22px 18px;
+  margin: 18px 0;
+  animation: appear 0.6s ease;
+}
+
+.card-step {
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  color: #9c722c;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 19px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+button {
+  background: #1f426e;
+  color: #ffffff;
+  border: none;
+  padding: 14px 26px;
+  border-radius: 30px;
+  font-size: 15.5px;
+  cursor: pointer;
+  margin: 10px 5px;
+  font-family: Georgia, serif;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #142c4a;
+  transform: translateY(-2px);
+}
+
+.counter {
+  color: #6b7c93;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.final-section {
+  display: none;
+  text-align: left;
+  line-height: 1.9;
+  font-size: 16.5px;
+  animation: appear 0.9s ease;
+}
+
+.final-section h2 {
+  text-align: center;
+  font-size: 25px;
+}
+
+.hug-area {
+  text-align: center;
+  margin-top: 25px;
+  padding: 20px;
+  background: #f1f4f9;
+  border-radius: 12px;
+  border: 1px solid #dce3ee;
+}
+
+.hug-message {
+  display: none;
+  margin-top: 15px;
+  font-size: 18px;
+  color: #1f426e;
+  font-weight: bold;
+  animation: appear 0.5s ease;
+}
+
+.signature {
+  text-align: center;
+  font-size: 23px;
+  color: #1f426e;
+  font-style: italic;
+  margin-top: 28px;
+}
+
+.footer-note {
+  text-align: center;
+  font-size: 12px;
+  color: #7d8da3;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Tarjeta inicial -->
+  <div class="envelope" id="envelope" onclick="openCard()">
+    <div class="seal">🏅</div>
+    <h1>Para ti, Papá ❤️</h1>
+    <p>Preparé este pequeño detalle para agradecerte todo lo que me has enseñado y decirte cuánto te quiero...</p>
+    <p><strong>Toca aquí para abrir tu carta</strong></p>
+  </div>
+
+  <!-- Contenido de la carta -->
+  <div class="letter" id="letter">
+    <h2>Papá, te amo muchísimo ❤️</h2>
+
+    <div class="intro">
+      Hoy quise hacerte esta página para decirte algo que llevo siempre en el corazón: gracias por todo lo que me has enseñado a lo largo de la vida y por velar siempre, junto a mi mami, por nuestra seguridad, nuestra salud y nuestro bienestar.
+    </div>
+
+    <hr class="divider">
+
+    <h3 class="cards-title">Algunas de las muchas razones por las que te quiero y te admiro:</h3>
+
+    <div id="cardBox" class="card-box">
+      <div class="card-step" id="cardStep"></div>
+      <p class="card-text" id="cardText"></p>
+    </div>
+
+    <div id="navControls">
+      <button id="nextBtn" onclick="nextReason()">Siguiente razón ⭐</button>
+      <div class="counter" id="counter"></div>
+    </div>
+
+    <div class="final-section" id="finalSection">
+      <hr class="divider">
+
+      <h2>Gracias por cuidarnos y enseñarme tanto</h2>
+
+      <p>
+        No me alcanzan las palabras para agradecerte cada enseñanza, cada consejo y todo el esfuerzo que has puesto para que nunca nos falte nada. De ti aprendí a ser responsable, a valorar el trabajo bien hecho y a enfrentar la vida con firmeza y cuidado.
+      </p>
+
+      <p>
+        Valoro profundamente cómo, junto a mi mami, siempre has velado por nuestra seguridad y nuestra salud, estando atento a cada detalle para protegernos y asegurarte de que estemos bien. Saber que cuento contigo me da una tranquilidad enorme.
+      </p>
+
+      <p>
+        Tenerte como papá es uno de mis mayores orgullos. Quiero que siempre recuerdes que te quiero infinito y que aquí estoy yo también para cuidarte y acompañarte siempre.
+      </p>
+
+      <div class="hug-area">
+        <p style="margin-top:0; color:#1c314e;">Un detalle extra para ti hoy:</p>
+        <button onclick="sendHug()">Recibir abrazo gigante 🤗❤️</button>
+        <div class="hug-message" id="hugMessage">
+          ¡Abrazo enviado con todo mi cariño! Te amo mucho, papá ❤️⭐
+        </div>
+      </div>
+
+      <div class="signature">
+        Con todo mi cariño, gratitud y orgullo,<br>
+        tu hija ❤️
+      </div>
+
+      <div class="footer-note">Hecho especialmente para ti, papá.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const dadReasons = [
+  "Porque siempre has velado, junto a mi mami, por nuestra seguridad, nuestra salud y nuestro bienestar.",
+  "Porque todo lo que me has enseñado me ha servido para crecer, cuidarme y salir adelante en la vida.",
+  "Porque eres un pilar firme en nuestra familia y un apoyo con el que sé que siempre puedo contar.",
+  "Porque me enseñaste con el ejemplo lo que significan el esfuerzo, la responsabilidad y la constancia.",
+  "Porque en los momentos difíciles tu presencia y tus consejos siempre me dan calma y confianza.",
+  "Porque te preocupas por nosotros en cada detalle, incluso de forma silenciosa.",
+  "Porque admiro tu fortaleza, tu dedicación y todo lo que has construido con tu trabajo.",
+  "Porque me haces sentir protegida, respaldada y muy orgullosa de llamarte papá.",
+  "Porque cada enseñanza tuya la llevo conmigo todos los días en lo que hago.",
+  "Porque simplemente eres el mejor papá que me pudo tocar, y te amo muchísimo."
+];
+
+let index = 0;
+
+function openCard() {
+  document.getElementById("envelope").style.display = "none";
+  document.getElementById("letter").style.display = "block";
+  showReason();
+}
+
+function showReason() {
+  document.getElementById("cardStep").innerText =
+    "RAZÓN " + (index + 1) + " DE " + dadReasons.length + " ⭐";
+  document.getElementById("cardText").innerText = dadReasons[index];
+  document.getElementById("counter").innerText =
+    (index + 1) + " / " + dadReasons.length;
+
+  if (index === dadReasons.length - 1) {
+    document.getElementById("nextBtn").innerText = "Leer lo que quiero decirte ❤️";
+  }
+}
+
+function nextReason() {
+  if (index < dadReasons.length - 1) {
+    index++;
+    showReason();
+  } else {
+    document.getElementById("navControls").style.display = "none";
+    document.getElementById("finalSection").style.display = "block";
+  }
+}
+
+function sendHug() {
+  document.getElementById("hugMessage").style.display = "block";
+  for (let i = 0; i < 25; i++) {
+    createFloatingSymbol("⭐", 2.5);
+  }
+}
+
+function createFloatingSymbol(symbol, durationBase) {
+  const el = document.createElement("div");
+  el.className = "floating";
+  el.innerText = symbol;
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.animationDuration = (durationBase + Math.random() * 4) + "s";
+  el.style.fontSize = (14 + Math.random() * 20) + "px";
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 8000);
+}
+
+// Estrellas y detalles dorados de fondo
+const symbols = ["⭐", "✨", "❤️", "🏅"];
+for (let i = 0; i < 18; i++) {
+  const el = document.createElement("div");
+  el.className = "floating";
+  el.innerText = symbols[i % symbols.length];
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.animationDelay = Math.random() * 7 + "s";
+  el.style.fontSize = (14 + Math.random() * 18) + "px";
+  document.body.appendChild(el);
+}
+</script>
+
+</body>
+</html>
